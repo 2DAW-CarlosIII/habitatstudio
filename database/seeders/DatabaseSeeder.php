@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
 
         // 2. PANGGIL KOST SEEDER DI SINI (Wajib!)
         $this->call([
-            KostSeeder::class,
+            CasaSeeder::class,
         ]);
     }
 }

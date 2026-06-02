@@ -1,0 +1,227 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class CasaSeeder extends Seeder
+{
+    public function run()
+    {
+        $casas = [
+            // --- ZONA ENSANCHE / UPCT ---
+            [
+                'nombre_casa' => 'Residencia Puerto Ensanche',
+                'tipo' => 'Mixto',
+                'precio' => 247.06,
+                'ubicacion' => 'Ensanche, Cartagena',
+                'direccion_completa' => 'Calle Mayor, 12, Ensanche, Cartagena',
+                'descripcion' => 'Vivienda luminosa con vistas al puerto. A 10 minutos a pie de la UPCT. Ambiente tranquilo para estudiar.',
+                'instalaciones' => 'Aire acondicionado,WiFi,Calentador de agua,Balcón privado,Aparcamiento para bicicletas,Seguridad',
+                'imagen_url' => 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=2070&auto=format&fit=crop',
+                'nombre_propietario' => 'Don Pedro García',
+                'telefono_propietario' => '600000000',
+                'valoracion' => 4.9,
+            ],
+            [
+                'nombre_casa' => 'Piso Estación Central',
+                'tipo' => 'Masculino',
+                'precio' => 170.59,
+                'ubicacion' => 'Área de la Estación, Cartagena',
+                'direccion_completa' => 'Paseo Estación, 3 (junto a la estación de Renfe), Cartagena',
+                'descripcion' => 'Piso masculino céntrico, ideal si dependes del tren. Muchos bares y tiendas alrededor.',
+                'instalaciones' => 'Cama,Escritorio,Armario,WiFi rápido,Baño compartido',
+                'imagen_url' => 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=2070&auto=format&fit=crop',
+                'nombre_propietario' => 'Sr. Martínez',
+                'telefono_propietario' => '600000001',
+                'valoracion' => 4.5,
+            ],
+            [
+                'nombre_casa' => 'Pensión Cisito',
+                'tipo' => 'Femenino',
+                'precio' => 188.24,
+                'ubicacion' => 'Peral, Cartagena',
+                'direccion_completa' => 'Calle Cisito, 10, Peral, Cartagena',
+                'descripcion' => 'Alojamiento femenino seguro con portero y buenas vistas. Ambiente fresco por las mañanas.',
+                'instalaciones' => 'Baño privado,Cocina compartida,Nevera,WiFi,Lavadora',
+                'imagen_url' => 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=2070&auto=format&fit=crop',
+                'nombre_propietario' => 'Doña Carmen López',
+                'telefono_propietario' => '600000002',
+                'valoracion' => 4.7,
+            ],
+            [
+                'nombre_casa' => 'Piso Canalejas',
+                'tipo' => 'Mixto',
+                'precio' => 205.88,
+                'ubicacion' => 'Ciudad Jardín, Cartagena',
+                'direccion_completa' => 'Avenida Canalejas, 45, Ciudad Jardín, Cartagena',
+                'descripcion' => 'Edificio moderno, minimalista. Ideal para estudiantes avanzados o jóvenes profesionales.',
+                'instalaciones' => 'Aire acondicionado,TV inteligente,Escritorio amplio,Azotea,Café gratis',
+                'imagen_url' => 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=2070&auto=format&fit=crop',
+                'nombre_propietario' => 'Don Rafael Torres',
+                'telefono_propietario' => '600000003',
+                'valoracion' => 4.8,
+            ],
+            [
+                'nombre_casa' => 'Estudio Bahía Norte',
+                'tipo' => 'Masculino',
+                'precio' => 155.88,
+                'ubicacion' => 'San Antón, Cartagena',
+                'direccion_completa' => 'Calle Tubagus (San Antón), Cartagena',
+                'descripcion' => 'Estudio económico en zona bien comunicada. Buen transporte público 24h.',
+                'instalaciones' => 'Cama,Armario,WiFi,Aparcamiento para motos,Cocina común',
+                'imagen_url' => 'https://images.unsplash.com/photo-1512918580421-b2feee3b85a6?q=80&w=2070&auto=format&fit=crop',
+                'nombre_propietario' => 'Sra. Ana Ruiz',
+                'telefono_propietario' => '600000004',
+                'valoracion' => 4.3,
+            ],
+
+            // --- ZONA CIFP CARLOS III / JATINANGOR (equivalente local) ---
+            [
+                'nombre_casa' => 'Residencia Grand Cartagena',
+                'tipo' => 'Mixto',
+                'precio' => 217.65,
+                'ubicacion' => 'Cerca CIFP Carlos III, Cartagena',
+                'direccion_completa' => 'Ronda de la Educación, 12 (frente al CIFP Carlos III), Cartagena',
+                'descripcion' => 'Apartamentos frente al CIFP Carlos III. Instalaciones de calidad y buen servicio.',
+                'instalaciones' => 'Aire acondicionado,Calentador de agua,Gimnasio,Minimercado,Seguridad,Tarjeta de acceso',
+                'imagen_url' => 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=2070&auto=format&fit=crop',
+                'nombre_propietario' => 'Don Julián Pérez',
+                'telefono_propietario' => '600000005',
+                'valoracion' => 4.8,
+            ],
+            [
+                'nombre_casa' => 'Piso Femenino Ciseke',
+                'tipo' => 'Femenino',
+                'precio' => 150.00,
+                'ubicacion' => 'La Aljorra, Cartagena',
+                'direccion_completa' => 'Pasaje Ciseke, La Aljorra, Cartagena',
+                'descripcion' => 'Alojamiento clásico y económico, cerca de servicios y lavanderías baratas.',
+                'instalaciones' => 'Cama,Armario,Baño exterior,WiFi,Sala de estar',
+                'imagen_url' => 'https://images.unsplash.com/photo-1616593969747-4797dc75033e?q=80&w=2070&auto=format&fit=crop',
+                'nombre_propietario' => 'Doña Elisa Martín',
+                'telefono_propietario' => '600000006',
+                'valoracion' => 4.4,
+            ],
+            [
+                'nombre_casa' => 'Wisma Sayang Cartagena',
+                'tipo' => 'Masculino',
+                'precio' => 164.71,
+                'ubicacion' => 'Los Dolores, Cartagena',
+                'direccion_completa' => 'Calle Sayang, Los Dolores, Cartagena',
+                'descripcion' => 'Ubicación tranquila, algo retirada de la carretera principal. Perfecta para quien busca silencio.',
+                'instalaciones' => 'Baño privado,Cama,Escritorio,WiFi,Aparcamiento amplio',
+                'imagen_url' => 'https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=2057&auto=format&fit=crop',
+                'nombre_propietario' => 'Don Damián Sánchez',
+                'telefono_propietario' => '600000007',
+                'valoracion' => 4.5,
+            ],
+            [
+                'nombre_casa' => 'Apartamento Pinewood Cartagena',
+                'tipo' => 'Mixto',
+                'precio' => 264.71,
+                'ubicacion' => 'Zona Comercial, Cartagena',
+                'direccion_completa' => 'Centro Comercial Jatos, Local 21, Cartagena',
+                'descripcion' => 'Estudio totalmente amueblado sobre centro comercial. Muy práctico y moderno.',
+                'instalaciones' => 'Aire acondicionado,TV,Cocina equipada,Nevera,Piscina,Acceso al centro comercial',
+                'imagen_url' => 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2070&auto=format&fit=crop',
+                'nombre_propietario' => 'Sra. Lidia Fernández',
+                'telefono_propietario' => '600000008',
+                'valoracion' => 4.9,
+            ],
+
+            // --- ZONA BUAH BATU equiv. SUR DEL PUERTO ---
+            [
+                'nombre_casa' => 'Piso Batununggal Centro',
+                'tipo' => 'Mixto',
+                'precio' => 229.41,
+                'ubicacion' => 'Barrio del Peral, Cartagena',
+                'direccion_completa' => 'Plaza Batununggal, Barrio del Peral, Cartagena',
+                'descripcion' => 'Alojamiento dentro de un conjunto residencial. Seguro y limpio, cerca de la autovía y servicios.',
+                'instalaciones' => 'Aire acondicionado,Calentador de agua,Cama grande,WiFi,Seguridad',
+                'imagen_url' => 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=2070&auto=format&fit=crop',
+                'nombre_propietario' => 'Don Héctor Hinojosa',
+                'telefono_propietario' => '600000009',
+                'valoracion' => 4.8,
+            ],
+            [
+                'nombre_casa' => 'Griya ISBI Cartagena',
+                'tipo' => 'Femenino',
+                'precio' => 158.82,
+                'ubicacion' => 'Casco Histórico, Cartagena',
+                'direccion_completa' => 'Calle del Arte (cerca del conservatorio), Cartagena',
+                'descripcion' => 'Pensión para estudiantes de arte. Ambiente creativo y acogedor.',
+                'instalaciones' => 'Cama,Armario,Espejo grande,WiFi,Cocina',
+                'imagen_url' => 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2158&auto=format&fit=crop',
+                'nombre_propietario' => 'Sra. Teresa Gómez',
+                'telefono_propietario' => '600000010',
+                'valoracion' => 4.6,
+            ],
+            [
+                'nombre_casa' => 'Alojamiento Empleados Renfe',
+                'tipo' => 'Masculino',
+                'precio' => 194.12,
+                'ubicacion' => 'Bojongsoang equiv., Cartagena',
+                'direccion_completa' => 'Avenida de la Estación (cerca de Renfe), Cartagena',
+                'descripcion' => 'Preferido por trabajadores y estudiantes que usan el tren. Internet de alta velocidad.',
+                'instalaciones' => 'Baño privado,WiFi 100Mbps,Escritorio amplio',
+                'imagen_url' => 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?q=80&w=2070&auto=format&fit=crop',
+                'nombre_propietario' => 'Don Joaquín Ruiz',
+                'telefono_propietario' => '600000011',
+                'valoracion' => 4.5,
+            ],
+
+            // --- CIMAHI equiv. / BARRIOS PERIFÉRICOS ---
+            [
+                'nombre_casa' => 'Piso Baros Cartagena',
+                'tipo' => 'Mixto',
+                'precio' => 147.06,
+                'ubicacion' => 'Los Barreros, Cartagena',
+                'direccion_completa' => 'Calle Baros, Los Barreros, Cartagena',
+                'descripcion' => 'Alojamiento básico cerca de accesos y servicios sanitarios.',
+                'instalaciones' => 'Cama,Armario,Baño exterior,Aparcamiento para motos',
+                'imagen_url' => 'https://images.unsplash.com/photo-1501876725168-00c445821c9e?q=80&w=2070&auto=format&fit=crop',
+                'nombre_propietario' => 'Sr. Ruiz',
+                'telefono_propietario' => '600000012',
+                'valoracion' => 4.2,
+            ],
+            [
+                // --- UNJANI equiv. (residencia próxima a otra universidad local) ---
+                'nombre_casa' => 'Residencia Unjani Cartagena',
+                'tipo' => 'Femenino',
+                'precio' => 152.94,
+                'ubicacion' => 'Santa Ana, Cartagena',
+                'direccion_completa' => 'Terraza Sudirman, Santa Ana (cerca de campus universitario), Cartagena',
+                'descripcion' => 'Especial para estudiantes. A 5 minutos a pie de un campus universitario local.',
+                'instalaciones' => 'Cama,Escritorio,WiFi,Sala de TV compartida',
+                'imagen_url' => 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop',
+                'nombre_propietario' => 'Doña Tatiana Pérez',
+                'telefono_propietario' => '600000013',
+                'valoracion' => 4.4,
+            ],
+
+            // --- LEMBANG equiv. / ZONA COSTERA ---
+            [
+                'nombre_casa' => 'Villa Litoral Cartagena',
+                'tipo' => 'Mixto',
+                'precio' => 188.24,
+                'ubicacion' => 'Atamaría, Cartagena',
+                'direccion_completa' => 'Carretera Litoral (cerca de la playa), Atamaría, Cartagena',
+                'descripcion' => 'Ambiente tipo villa junto al mar. Fresco y tranquilo, ideal para estancias de turismo y trabajo en hostelería.',
+                'instalaciones' => 'Calentador de agua,WiFi,Amplio jardín,Vistas al mar',
+                'imagen_url' => 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2064&auto=format&fit=crop',
+                'nombre_propietario' => 'Don Manuel Ortiz',
+                'telefono_propietario' => '600000014',
+                'valoracion' => 4.7,
+            ],
+        ];
+
+        foreach ($casas as $casa) {
+            DB::table('casas')->insert(array_merge($casa, [
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]));
+        }
+    }
+}

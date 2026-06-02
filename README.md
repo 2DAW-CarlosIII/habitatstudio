@@ -1,10 +1,10 @@
-# 🏠 SobatKos - Modern Boarding House Finder
+# 🏠 Habitat - Modern Boarding House Finder
 
 ![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
 
-**SobatKos** is a modern, responsive web application designed to simplify the process of finding and booking boarding houses (*Kost*). Built with **Laravel 10** and **Tailwind CSS**, this project focuses on delivering a premium user experience through interactive UI design and robust functionality.
+**Habitat** is a modern, responsive web application designed to simplify the process of finding and booking boarding houses (*Casa*). Built with **Laravel 10** and **Tailwind CSS**, this project focuses on delivering a premium user experience through interactive UI design and robust functionality.
 
 This project serves as a Full-Stack Web Development Portfolio.
 
@@ -23,10 +23,10 @@ This project serves as a Full-Stack Web Development Portfolio.
 * **Responsive Layout:** Grid systems that adapt perfectly to Desktop, Tablet, and Mobile screens.
 
 ### 🛠️ Core Functionalities
-* **🔍 Smart Listing:** Browse detailed kost listings with images, pricing, and facilities.
+* **🔍 Smart Listing:** Browse detailed casa listings with images, pricing, and facilities.
 * **🗺️ Map Integration:** Embedded Google Maps for accurate location tracking.
 * **💬 WhatsApp Booking:** "Direct Rent" button integrated with WhatsApp API for instant communication with owners.
-* **⭐ Rating System:** Visual star rating system for each property.
+* **⭐ Rating System:** Visual star valoracion system for each property.
 
 ---
 
@@ -67,8 +67,8 @@ Make sure you have these installed on your computer:
 1.  **Clone the Repository**
     Open your terminal/command prompt and run:
     ```bash
-    git clone https://github.com/AdhityaDaffaR/sobatkos-laravel-tailwind.git
-    cd sobatkos-laravel-tailwind
+    git clone https://github.com/AdhityaDaffaR/habitat-laravel-tailwind.git
+    cd habitat-laravel-tailwind
     ```
 
 2.  **Install Backend & Frontend Dependencies**
@@ -81,7 +81,7 @@ Make sure you have these installed on your computer:
 3.  **Database Configuration (IMPORTANT!)**
     * Open **XAMPP Control Panel** and click **Start** for **Apache** and **MySQL**.
     * Open your browser and go to `http://localhost/phpmyadmin`.
-    * Click **New** (sidebar), type **`sobatkos`** as the database name, and click **Create**.
+    * Click **New** (sidebar), type **`habitat`** as the database name, and click **Create**.
 
 4.  **Environment Setup**
     * In your project folder, duplicate the `.env.example` file and rename it to `.env`.
@@ -90,7 +90,7 @@ Make sure you have these installed on your computer:
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
-    DB_DATABASE=sobatkos
+    DB_DATABASE=habitat
     DB_USERNAME=root
     DB_PASSWORD=
     ```

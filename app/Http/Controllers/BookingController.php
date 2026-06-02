@@ -11,46 +11,46 @@ class BookingController extends Controller
     public function index()
     {
         // Mengambil 3 kos secara ACAK untuk rekomendasi
-        $kosts = DB::table('kosts')
+        $casas = DB::table('casas')
                     ->inRandomOrder()
                     ->take(3)
                     ->get();
-                    
-        return view('home', compact('kosts'));
+
+        return view('home', compact('casas'));
     }
 
-    // 2. Detail Kost
+    // 2. Detail Casa
     public function show($id)
     {
-        $kost = DB::table('kosts')->where('id', $id)->first();
-        if (!$kost) abort(404);
-        
-        // Debugging (Opsional): Hapus // di bawah jika rating masih error
-        // dd($kost); 
-        
-        return view('kosts.show', compact('kost'));
+        $casa = DB::table('casas')->where('id', $id)->first();
+        if (!$casa) abort(404);
+
+        // Debugging (Opsional): Hapus // di bawah jika valoracion masih error
+        // dd($casa);
+
+        return view('casas.show', compact('casa'));
     }
 
     // 3. Form Booking
     public function create($id)
     {
-        $kost = DB::table('kosts')->where('id', $id)->first();
-        return view('bookings.create', compact('kost'));
+        $casa = DB::table('casas')->where('id', $id)->first();
+        return view('bookings.create', compact('casa'));
     }
 
     // 4. Proses Simpan Booking
     public function store(Request $request)
     {
         $request->validate([
-            'kost_id' => 'required|exists:kosts,id',
+            'kost_id' => 'required|exists:casas,id',
             'nama_penyewa' => 'required|string|max:255',
             'no_hp' => 'required|string|max:20',
             'tanggal_mulai' => 'required|date',
             'durasi' => 'required|integer|min:1',
         ]);
 
-        $kost = DB::table('kosts')->where('id', $request->kost_id)->first();
-        $total_harga = $kost->harga * $request->durasi;
+        $casa = DB::table('casas')->where('id', $request->kost_id)->first();
+        $total_harga = $casa->precio * $request->durasi;
 
         $bookingId = DB::table('bookings')->insertGetId([
             'kost_id' => $request->kost_id,
@@ -71,8 +71,8 @@ class BookingController extends Controller
     public function payment($id)
     {
         $booking = DB::table('bookings')
-            ->join('kosts', 'bookings.kost_id', '=', 'kosts.id')
-            ->select('bookings.*', 'kosts.nama_kost', 'kosts.lokasi')
+            ->join('casas', 'bookings.kost_id', '=', 'casas.id')
+            ->select('bookings.*', 'casas.nombre_casa', 'casas.ubicacion')
             ->where('bookings.id', $id)
             ->first();
 
@@ -93,7 +93,7 @@ class BookingController extends Controller
 
             DB::table('bookings')->where('id', $id)->update([
                 'bukti_bayar' => 'storage/' . $path,
-                'status' => 'Lunas', 
+                'status' => 'Lunas',
                 'updated_at' => now(),
             ]);
 
@@ -107,8 +107,8 @@ class BookingController extends Controller
     public function success($id)
     {
         $booking = DB::table('bookings')
-            ->join('kosts', 'bookings.kost_id', '=', 'kosts.id')
-            ->select('bookings.*', 'kosts.nama_kost', 'kosts.lokasi')
+            ->join('casas', 'bookings.kost_id', '=', 'casas.id')
+            ->select('bookings.*', 'casas.nombre_casa', 'casas.ubicacion')
             ->where('bookings.id', $id)
             ->first();
 
@@ -121,8 +121,8 @@ class BookingController extends Controller
     public function history()
     {
         $bookings = DB::table('bookings')
-            ->join('kosts', 'bookings.kost_id', '=', 'kosts.id')
-            ->select('bookings.*', 'kosts.nama_kost', 'kosts.gambar_url')
+            ->join('casas', 'bookings.kost_id', '=', 'casas.id')
+            ->select('bookings.*', 'casas.nombre_casa', 'casas.imagen_url')
             ->orderByDesc('bookings.created_at')
             ->get();
 
@@ -149,21 +149,21 @@ class BookingController extends Controller
         return back()->with('error', 'Data tidak ditemukan.');
     }
 
-    // 10. Halaman Katalog / Cari Kost
+    // 10. Halaman Katalog / Cari Casa
     public function search(Request $request)
     {
         $keyword = $request->input('keyword');
-        $query = DB::table('kosts');
+        $query = DB::table('casas');
 
         if ($keyword) {
-            $query->where('nama_kost', 'like', "%{$keyword}%")
-                  ->orWhere('lokasi', 'like', "%{$keyword}%")
-                  ->orWhere('alamat_lengkap', 'like', "%{$keyword}%");
+            $query->where('nombre_casa', 'like', "%{$keyword}%")
+                  ->orWhere('ubicacion', 'like', "%{$keyword}%")
+                  ->orWhere('direccion_completa', 'like', "%{$keyword}%");
         }
 
-        $kosts = $query->orderByDesc('created_at')->paginate(9);
-        $kosts->appends(['keyword' => $keyword]);
+        $casas = $query->orderByDesc('created_at')->paginate(9);
+        $casas->appends(['keyword' => $keyword]);
 
-        return view('kosts.index', compact('kosts', 'keyword'));
+        return view('casas.index', compact('casas', 'keyword'));
     }
 }

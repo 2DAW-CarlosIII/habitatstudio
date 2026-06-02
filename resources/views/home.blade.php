@@ -10,28 +10,28 @@
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
                 </span>
-                #1 Platform Anak Rantau
+                #1 plataforma para quienes estudian fuera
             </div>
-            
+
             <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 flex flex-col gap-2 md:gap-4 leading-tight">
                 <span>
-                    Cari Kos <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Nyaman</span>,
+                    Encuentra alojamiento <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">cómodo</span>,
                 </span>
                 <span>
-                    Hidup Lebih Aman.
+                    Vive con más seguridad.
                 </span>
             </h1>
-            
+
             <p class="text-lg text-slate-500 mb-8 leading-relaxed max-w-lg">
-                Gak perlu lagi keliling panas-panasan. Cukup scroll, booking, dan langsung pindahan.
+                No hace falta dar vueltas bajo el sol. Solo navega, reserva y simplemente muévete.
             </p>
-            
-            <form action="{{ route('kosts.index') }}" method="GET" class="bg-white p-2 rounded-full shadow-xl border border-gray-100 flex items-center max-w-md w-full relative z-20">
+
+            <form action="{{ route('casas.index') }}" method="GET" class="bg-white p-2 rounded-full shadow-xl border border-gray-100 flex items-center max-w-md w-full relative z-20">
                 <div class="pl-6 flex-1">
-                    <input type="text" name="keyword" placeholder="Mau cari kos di daerah mana?" class="w-full text-sm outline-none text-gray-700 placeholder-gray-400 bg-transparent">
+                    <input type="text" name="keyword" placeholder="¿En qué zona buscas alojamiento?" class="w-full text-sm outline-none text-gray-700 placeholder-gray-400 bg-transparent">
                 </div>
                 <button type="submit" class="bg-slate-900 text-white rounded-full px-6 py-3 font-bold text-sm hover:bg-blue-700 transition shadow-md hover:shadow-blue-500/30">
-                    Cari
+                    Buscar
                 </button>
             </form>
         </div>
@@ -48,50 +48,50 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-end mb-12">
             <div>
-                <h2 class="text-3xl font-bold text-slate-900">Rekomendasi Kos</h2>
-                <p class="text-slate-500 mt-2">Pilihan favorit di daerahmu (Random Picks).</p>
+                <h2 class="text-3xl font-bold text-slate-900">Recomendaciones de alojamientos</h2>
+                <p class="text-slate-500 mt-2">Favoritos en tu zona (selección aleatoria).</p>
             </div>
-            <a href="{{ route('kosts.index') }}" class="text-blue-600 font-bold text-sm hover:underline">Lihat Semua <i class="fa-solid fa-arrow-right ml-1"></i></a>
+            <a href="{{ route('casas.index') }}" class="text-blue-600 font-bold text-sm hover:underline">Ver todo <i class="fa-solid fa-arrow-right ml-1"></i></a>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            @foreach($kosts as $kost)
+            @foreach($casas as $casa)
             <div class="bg-white rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-1 transition duration-300 overflow-hidden border border-gray-100 group flex flex-col h-full">
                 <div class="relative h-56 overflow-hidden flex-shrink-0">
-                    <img src="{{ $kost->gambar_url }}" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
-                    
+                    <img src="{{ $casa->imagen_url }}" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+
                     <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-slate-800 shadow-sm">
-                        {{ $kost->tipe }}
+                        {{ $casa->tipo }}
                     </div>
 
                     <div class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur px-2 py-1 rounded-lg text-xs font-bold text-yellow-400 shadow-sm flex items-center gap-1">
                         <i class="fa-solid fa-star"></i>
-                        <span>{{ $kost->rating }}</span>
+                        <span>{{ $casa->valoracion }}</span>
                     </div>
                 </div>
                 <div class="p-6 flex flex-col flex-1">
                     <div class="flex-1">
-                        <h3 class="text-lg font-bold text-slate-900 line-clamp-1 mb-2">{{ $kost->nama_kost }}</h3>
+                        <h3 class="text-lg font-bold text-slate-900 line-clamp-1 mb-2">{{ $casa->nombre_casa }}</h3>
                         <p class="text-slate-500 text-sm mb-4 flex items-center">
-                            <i class="fa-solid fa-location-dot text-red-500 mr-2"></i> {{ $kost->lokasi }}
+                            <i class="fa-solid fa-location-dot text-red-500 mr-2"></i> {{ $casa->ubicacion }}
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            @foreach(array_slice(explode(',', $kost->fasilitas), 0, 3) as $fasilitas)
-                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded border border-slate-200">{{ $fasilitas }}</span>
+                            @foreach(array_slice(explode(',', $casa->instalaciones), 0, 3) as $instalaciones)
+                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded border border-slate-200">{{ $instalaciones }}</span>
                             @endforeach
-                            @if(count(explode(',', $kost->fasilitas)) > 3)
-                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded border border-slate-200">+{{ count(explode(',', $kost->fasilitas)) - 3 }}</span>
+                            @if(count(explode(',', $casa->instalaciones)) > 3)
+                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded border border-slate-200">+{{ count(explode(',', $casa->instalaciones)) - 3 }}</span>
                             @endif
                         </div>
                     </div>
                     <div class="flex justify-between items-center border-t border-slate-100 pt-4 mt-auto">
                         <div>
-                            <div class="text-lg font-bold text-blue-600">Rp {{ number_format($kost->harga, 0, ',', '.') }}</div>
-                            <div class="text-xs text-slate-400">/ bulan</div>
+                            <div class="text-lg font-bold text-blue-600">€ {{ number_format($casa->precio, 0, ',', '.') }}</div>
+                            <div class="text-xs text-slate-400">/ mes</div>
                         </div>
-                        
-                        <a href="{{ route('kosts.show', $kost->id) }}" class="bg-slate-900 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition shadow-lg transform hover:-translate-y-0.5 hover:shadow-blue-500/30">
-                            Lihat
+
+                        <a href="{{ route('casas.show', $casa->id) }}" class="bg-slate-900 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition shadow-lg transform hover:-translate-y-0.5 hover:shadow-blue-500/30">
+                            Ver
                         </a>
                     </div>
                 </div>
@@ -104,31 +104,31 @@
 <section id="keunggulan" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-slate-900">Kenapa SobatKos?</h2>
-            <p class="text-slate-500 mt-2">Beda dari yang lain, kami mengerti kebutuhanmu.</p>
+            <h2 class="text-3xl font-bold text-slate-900">¿Por qué Habitat?</h2>
+            <p class="text-slate-500 mt-2">Diferente a los demás, entendemos tus necesidades.</p>
         </div>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="p-8 rounded-3xl bg-slate-50 hover:bg-white hover:shadow-xl transition duration-300 border border-transparent hover:border-gray-100 text-center group">
                 <div class="w-16 h-16 mx-auto bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
                     <i class="fa-solid fa-tag"></i>
                 </div>
-                <h3 class="text-xl font-bold text-slate-800 mb-3">Harga Jujur</h3>
-                <p class="text-slate-500 text-sm">Tidak ada biaya admin tersembunyi. Bayar sesuai harga tertera.</p>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Precio justo</h3>
+                <p class="text-slate-500 text-sm">No hay comisiones ocultas. Paga el precio indicado.</p>
             </div>
             <div class="p-8 rounded-3xl bg-slate-50 hover:bg-white hover:shadow-xl transition duration-300 border border-transparent hover:border-gray-100 text-center group">
                 <div class="w-16 h-16 mx-auto bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
                     <i class="fa-solid fa-shield-halved"></i>
                 </div>
-                <h3 class="text-xl font-bold text-slate-800 mb-3">Terverifikasi</h3>
-                <p class="text-slate-500 text-sm">Semua kos sudah disurvey langsung oleh tim kami. Anti zonk.</p>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Verificado</h3>
+                <p class="text-slate-500 text-sm">Todos los alojamientos han sido inspeccionados por nuestro equipo. Sin sorpresas.</p>
             </div>
             <div class="p-8 rounded-3xl bg-slate-50 hover:bg-white hover:shadow-xl transition duration-300 border border-transparent hover:border-gray-100 text-center group">
                 <div class="w-16 h-16 mx-auto bg-green-100 text-green-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
                     <i class="fa-solid fa-bolt"></i>
                 </div>
-                <h3 class="text-xl font-bold text-slate-800 mb-3">Booking Cepat</h3>
-                <p class="text-slate-500 text-sm">Proses booking sat-set, pembayaran otomatis, langsung konfirmasi.</p>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Reserva rápida</h3>
+                <p class="text-slate-500 text-sm">Proceso de reserva instantáneo, pago automático y confirmación inmediata.</p>
             </div>
         </div>
     </div>
@@ -137,8 +137,8 @@
 <section id="testimoni" class="py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-slate-900">Kata Anak Rantau</h2>
-            <p class="text-slate-500 mt-2">Mereka yang sudah menemukan hunian nyaman.</p>
+            <h2 class="text-3xl font-bold text-slate-900">Testimonios</h2>
+            <p class="text-slate-500 mt-2">Quienes ya han encontrado un hogar cómodo.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="p-8 rounded-2xl bg-white border border-slate-100 shadow-sm">
@@ -146,39 +146,39 @@
                     <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-12 h-12 rounded-full object-cover">
                     <div>
                         <h4 class="font-bold text-slate-900">Sarah Putri</h4>
-                        <p class="text-xs text-slate-500">Mahasiswi UNPAD</p>
+                        <p class="text-xs text-slate-500">Estudiante de UNPAD</p>
                     </div>
                 </div>
                 <div class="text-yellow-400 text-sm mb-3">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
-                <p class="text-slate-600 text-sm">"Pas sampai kosannya persis banget sama di foto. Adminnya gercep!"</p>
+                <p class="text-slate-600 text-sm">"Al llegar, el alojamiento era exactamente como en las fotos. ¡El admin respondió rapidísimo!"</p>
             </div>
             <div class="p-8 rounded-2xl bg-white border border-slate-100 shadow-sm">
                 <div class="flex items-center gap-4 mb-4">
                     <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full object-cover">
                     <div>
                         <h4 class="font-bold text-slate-900">Dimas Anggara</h4>
-                        <p class="text-xs text-slate-500">Karyawan</p>
+                        <p class="text-xs text-slate-500">Empleado</p>
                     </div>
                 </div>
                 <div class="text-yellow-400 text-sm mb-3">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
                 </div>
-                <p class="text-slate-600 text-sm">"Fitur filternya ngebantu banget buat nyari kos yang ada parkir mobilnya."</p>
+                <p class="text-slate-600 text-sm">"La función de filtros me ayudó mucho a encontrar alojamientos con aparcamiento para coches."</p>
             </div>
             <div class="p-8 rounded-2xl bg-white border border-slate-100 shadow-sm">
                 <div class="flex items-center gap-4 mb-4">
                     <img src="https://randomuser.me/api/portraits/women/65.jpg" class="w-12 h-12 rounded-full object-cover">
                     <div>
                         <h4 class="font-bold text-slate-900">Rina Wati</h4>
-                        <p class="text-xs text-slate-500">Mahasiswi ITB</p>
+                        <p class="text-xs text-slate-500">Estudiante de ITB</p>
                     </div>
                 </div>
                 <div class="text-yellow-400 text-sm mb-3">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
-                <p class="text-slate-600 text-sm">"SobatKos penyelamat banget pas ospek dadakan butuh kosan harian."</p>
+                <p class="text-slate-600 text-sm">"Habitat fue un salvavidas cuando necesitaba alojamiento por días durante la orientación universitaria."</p>
             </div>
         </div>
     </div>

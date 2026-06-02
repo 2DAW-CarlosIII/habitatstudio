@@ -6,8 +6,8 @@ use App\Http\Controllers\BookingController;
 // Halaman Depan (Home)
 Route::get('/', [BookingController::class, 'index'])->name('home');
 
-// Detail Kost
-Route::get('/kost/{id}', [BookingController::class, 'show'])->name('kosts.show');
+// Detail Casa
+Route::get('/casa/{id}', [BookingController::class, 'show'])->name('casas.show');
 
 // Proses Booking
 Route::get('/booking/create/{id}', [BookingController::class, 'create'])->name('bookings.create');
@@ -25,5 +25,5 @@ Route::get('/history', [BookingController::class, 'history'])->name('bookings.hi
 // Hapus Booking
 Route::delete('/booking/delete/{id}', [BookingController::class, 'destroy'])->name('bookings.destroy');
 
-// Halaman Pencarian Semua Kost
-Route::get('/cari-kost', [BookingController::class, 'search'])->name('kosts.index');
+// Halaman Pencarian Semua Casa
+Route::get('/cari-casa', [BookingController::class, 'search'])->name('casas.index');
