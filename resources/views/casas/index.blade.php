@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.habitatstudio')
 
 @section('content')
 <div class="min-h-screen bg-slate-50 py-12">
@@ -12,7 +12,7 @@
                 <input type="text"
                        name="keyword"
                        value="{{ $keyword ?? '' }}"
-                       placeholder="Escribe 'Dago', 'Cimahi' o 'Putri'..."
+                       placeholder="Escribe 'Peral', 'Estación' o 'Santa Ana'..."
                        class="w-full pl-12 pr-4 py-4 rounded-full border border-slate-200 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-slate-700">
 
                 <i class="fa-solid fa-magnifying-glass absolute left-5 top-1/2 transform -translate-y-1/2 text-slate-400 text-lg"></i>

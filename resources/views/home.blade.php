@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.habitatstudio')
 
 @section('content')
-<section id="hero" class="relative min-h-[90vh] flex items-center bg-white overflow-hidden">
+<section id="inicio" class="relative min-h-[90vh] flex items-center bg-white overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-indigo-50 z-0"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div class="text-left py-10">
@@ -44,7 +44,7 @@
     </div>
 </section>
 
-<section id="rekomendasi" class="py-20 bg-slate-50">
+<section id="recomendaciones" class="py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-end mb-12">
             <div>
@@ -101,7 +101,7 @@
     </div>
 </section>
 
-<section id="keunggulan" class="py-20 bg-white">
+<section id="ventajas" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <h2 class="text-3xl font-bold text-slate-900">¿Por qué HabitatStudio?</h2>
@@ -134,7 +134,7 @@
     </div>
 </section>
 
-<section id="testimoni" class="py-20 bg-slate-50">
+<section id="testimonios" class="py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <h2 class="text-3xl font-bold text-slate-900">Testimonios</h2>

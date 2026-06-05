@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.habitatstudio')
 
 @section('content')
 <div class="min-h-[calc(100vh-5rem)] bg-slate-50 flex items-center justify-center px-4 py-8 relative">

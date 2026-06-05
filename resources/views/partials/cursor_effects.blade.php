@@ -1,3 +1,4 @@
+    <style>
         /* --- GOLDEN CUSTOM CURSOR --- */
         @media (min-width: 1024px) {
             *, *::before, *::after { cursor: none !important; }
@@ -42,3 +43,4 @@
             body.hovering .cursor-outline { width: 50px; height: 50px; background-color: rgba(245, 158, 11, 0.15); border-color: #d97706; }
             body.hovering .cursor-ripple { border-color: #d97706; }
         }
+    </style>
