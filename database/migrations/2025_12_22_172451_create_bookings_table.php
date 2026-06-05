@@ -10,14 +10,14 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kost_id')->constrained('casas')->onDelete('cascade');
-            $table->string('nama_penyewa');
-            $table->string('no_hp');
-            $table->date('tanggal_mulai');
-            $table->integer('durasi'); // Dalam bulan
-            $table->decimal('total_harga', 15, 2);
-            $table->enum('status', ['Pending', 'Lunas'])->default('Pending');
-            $table->string('bukti_bayar')->nullable();
+            $table->foreignId('casa_id')->constrained('casas')->onDelete('cascade');
+            $table->string('nombre_inquilino');
+            $table->string('num_movil');
+            $table->date('fecha_inicio');
+            $table->integer('duracion'); // En meses
+            $table->decimal('precio_total', 15, 2);
+            $table->enum('estado', ['Pendiente', 'Pagado'])->default('Pendiente');
+            $table->string('comprobante_pago')->nullable();
             $table->timestamps();
         });
     }

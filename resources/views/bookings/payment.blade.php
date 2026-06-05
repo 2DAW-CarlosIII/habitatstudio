@@ -27,7 +27,7 @@
             <div class="bg-slate-900 px-6 py-5 text-center text-white relative overflow-hidden">
                 <div class="relative z-10">
                     <p class="text-slate-400 text-[10px] uppercase tracking-widest mb-0.5">Invoice #INV-{{ $booking->id }}</p>
-                    <p class="text-3xl font-bold text-blue-400">€ {{ number_format($booking->total_harga, 0, ',', '.') }}</p>
+                    <p class="text-3xl font-bold text-blue-400">€ {{ number_format($booking->precio_total, 0, ',', '.') }}</p>
                 </div>
                 <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-blue-600 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
                 <div class="absolute -top-10 -right-10 w-32 h-32 bg-indigo-600 rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
@@ -41,17 +41,17 @@
                             <h3 class="font-bold text-slate-900 text-base leading-tight">{{ $booking->nombre_casa }}</h3>
                             <p class="text-slate-500 text-xs mt-0.5"><i class="fa-solid fa-location-dot mr-1 text-red-400"></i> {{ $booking->ubicacion }}</p>
                         </div>
-                        <span class="bg-blue-50 text-blue-700 text-[10px] font-bold px-2 py-1 rounded-full border border-blue-100">{{ $booking->durasi }} Meses</span>
+                        <span class="bg-blue-50 text-blue-700 text-[10px] font-bold px-2 py-1 rounded-full border border-blue-100">{{ $booking->duracion }} Meses</span>
                     </div>
 
                     <div class="grid grid-cols-2 gap-y-2 gap-x-4 text-xs">
                         <div>
                             <span class="text-slate-400 text-[10px] uppercase block">Inquilino</span>
-                            <span class="font-bold text-slate-800 truncate block">{{ $booking->nama_penyewa }}</span>
+                            <span class="font-bold text-slate-800 truncate block">{{ $booking->nombre_inquilino }}</span>
                         </div>
                         <div class="text-right">
                             <span class="text-slate-400 text-[10px] uppercase block">Check-in</span>
-                            <span class="font-bold text-slate-800">{{ \Carbon\Carbon::parse($booking->tanggal_mulai)->format('d M Y') }}</span>
+                            <span class="font-bold text-slate-800">{{ \Carbon\Carbon::parse($booking->fecha_inicio)->format('d M Y') }}</span>
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                     <div>
                         <p class="text-blue-900 font-bold text-[10px] mb-0.5">Transferencia bancaria BCA</p>
                         <p id="rek-number" class="text-base font-bold text-slate-800 font-mono tracking-wide">8900 1234 5678</p>
-                        <p class="text-slate-500 text-[10px]">a.n PT Habitat Indonesia</p>
+                        <p class="text-slate-500 text-[10px]">a.n PT HabitatS España</p>
                     </div>
                     <button type="button" onclick="copyRekening()" class="text-blue-600 hover:text-blue-700 hover:bg-blue-100 px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1">
                         <i class="fa-regular fa-copy"></i> Copiar
@@ -105,12 +105,12 @@
                                 </button>
                             </div>
 
-                            <input id="file-upload" name="bukti_bayar" type="file" class="hidden" accept="image/png, image/jpeg, image/jpg" onchange="handleFileSelect(this)">
+                            <input id="file-upload" name="comprobante_pago" type="file" class="hidden" accept="image/png, image/jpeg, image/jpg" onchange="handleFileSelect(this)">
                         </div>
                     </div>
 
                     <div class="flex gap-3">
-                        <a href="{{ route('bookings.create', $booking->kost_id) }}"
+                        <a href="{{ route('bookings.create', $booking->casa_id) }}"
                            class="flex-1 h-12 rounded-xl border-2 border-red-100 text-red-500 bg-white font-bold hover:bg-red-50 hover:text-red-600 hover:border-red-200 transition shadow-sm transform hover:-translate-y-0.5 flex items-center justify-center gap-2 text-sm">
                             <i class="fa-solid fa-arrow-left"></i> Volver
                         </a>

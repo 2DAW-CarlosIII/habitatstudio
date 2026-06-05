@@ -2,9 +2,9 @@
 <html lang="es" class="scroll-smooth"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Habitat - Encuentra alojamiento cómodo</title>
+    <title>HabitatStudio - Encuentra alojamiento cómodo</title>
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><defs><linearGradient id=%22a%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22><stop offset=%220%25%22 stop-color=%22%232563eb%22/><stop offset=%22100%25%22 stop-color=%22%234338ca%22/></linearGradient></defs><rect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22url(%23a)%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2240%22 font-weight=%22bold%22 fill=%22%23fff%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>S</text></svg>" type="image/svg+xml">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><defs><linearGradient id=%22a%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22><stop offset=%220%25%22 stop-color=%22%232563eb%22/><stop offset=%22100%25%22 stop-color=%22%234338ca%22/></linearGradient></defs><rect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22url(%23a)%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2240%22 font-weight=%22bold%22 fill=%22%23fff%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>HS</text></svg>" type="image/svg+xml">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -89,16 +89,16 @@
 
                 <a href="{{ route('home') }}" class="flex items-center gap-2 group">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-white font-bold text-xl shadow-lg transition-all duration-300 ease-out group-hover:scale-110 group-hover:rotate-12">
-                        <span class="transition-transform duration-300 group-hover:-rotate-12">S</span>
+                        <span class="transition-transform duration-300 group-hover:-rotate-12">HS</span>
                     </div>
-                    <span class="font-bold text-2xl tracking-tight text-slate-800">Sobat<span class="text-blue-600">Kos</span></span>
+                    <span class="font-bold text-2xl tracking-tight text-slate-800">Habitat<span class="text-blue-600">Studio</span></span>
                 </a>
 
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="{{ route('home') }}#hero" class="text-gray-600 hover:text-blue-600 font-medium transition text-sm">Inicio</a>
-                    <a href="{{ route('home') }}#rekomendasi" class="text-gray-600 hover:text-blue-600 font-medium transition text-sm">Recomendaciones</a>
-                    <a href="{{ route('home') }}#keunggulan" class="text-gray-600 hover:text-blue-600 font-medium transition text-sm">Ventajas</a>
-                    <a href="{{ route('home') }}#testimoni" class="text-gray-600 hover:text-blue-600 font-medium transition text-sm">Testimonios</a>
+                    <a href="{{ route('home') }}#inicio" class="text-gray-600 hover:text-blue-600 font-medium transition text-sm">Inicio</a>
+                    <a href="{{ route('home') }}#recomendaciones" class="text-gray-600 hover:text-blue-600 font-medium transition text-sm">Recomendaciones</a>
+                    <a href="{{ route('home') }}#ventajas" class="text-gray-600 hover:text-blue-600 font-medium transition text-sm">Ventajas</a>
+                    <a href="{{ route('home') }}#testimonios" class="text-gray-600 hover:text-blue-600 font-medium transition text-sm">Testimonios</a>
                 </div>
 
                 <div class="hidden md:flex items-center gap-4">
@@ -114,10 +114,10 @@
 
         <div id="mobile-menu" class="absolute top-20 left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-xl md:hidden overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0">
             <div class="flex flex-col p-6 space-y-6 text-center">
-                <a href="{{ route('home') }}#hero" class="block text-gray-600 hover:text-blue-600 font-medium text-lg mobile-link">Inicio</a>
-                <a href="{{ route('home') }}#rekomendasi" class="block text-gray-600 hover:text-blue-600 font-medium text-lg mobile-link">Recomendaciones</a>
-                <a href="{{ route('home') }}#keunggulan" class="block text-gray-600 hover:text-blue-600 font-medium text-lg mobile-link">Ventajas</a>
-                <a href="{{ route('home') }}#testimoni" class="block text-gray-600 hover:text-blue-600 font-medium text-lg mobile-link">Testimonios</a>
+                <a href="{{ route('home') }}#inicio" class="block text-gray-600 hover:text-blue-600 font-medium text-lg mobile-link">Inicio</a>
+                <a href="{{ route('home') }}#recomendaciones" class="block text-gray-600 hover:text-blue-600 font-medium text-lg mobile-link">Recomendaciones</a>
+                <a href="{{ route('home') }}#ventajas" class="block text-gray-600 hover:text-blue-600 font-medium text-lg mobile-link">Ventajas</a>
+                <a href="{{ route('home') }}#testimonios" class="block text-gray-600 hover:text-blue-600 font-medium text-lg mobile-link">Testimonios</a>
                 <a href="{{ route('bookings.history') }}" class="block text-gray-600 hover:text-blue-600 font-medium text-lg mobile-link">Historial de reservas</a>
                 <a href="#" class="block w-full bg-slate-900 text-white font-bold py-3.5 rounded-xl hover:bg-blue-700 transition shadow-lg mobile-link">Iniciar sesión</a>
             </div>
@@ -131,13 +131,13 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 mb-12">
             <div class="lg:col-span-4">
                 <div class="flex items-center gap-2 mb-4">
-                    <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold">S</div><span class="font-bold text-xl">Habitat</span>
+                    <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold">HS</div><span class="font-bold text-xl">HabitatStudio</span>
                 </div>
                 <p class="text-slate-400 text-sm leading-relaxed mb-6 pr-4">Compañero fiel del estudiante. Buscar alojamiento cómodo, seguro y asequible tan fácil como navegar.</p>
                 <div class="flex space-x-3">
                     <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 transition text-white border border-slate-700 hover:border-blue-600"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-500 transition text-white border border-slate-700 hover:border-blue-500"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-700 transition text-white border border-slate-700 hover:border-blue-700"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://github.com/AdhityaDaffaR/SobatKos-CariKosNyaman-Website" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-700 transition text-white border border-slate-700 hover:border-blue-700"><i class="fa-brands fa-github"></i></a>
                 </div>
             </div>
             <div class="lg:col-span-2">
@@ -145,15 +145,15 @@
                 <ul class="space-y-2 text-slate-400 text-sm">
                     <li><a href="{{ route('home') }}" class="hover:text-blue-400 transition">Inicio</a></li>
                     <li><a href="{{ route('casas.index') }}" class="hover:text-blue-400 transition">Buscar alojamientos</a></li>
-                    <li><a href="{{ route('home') }}#keunggulan" class="hover:text-blue-400 transition">Ventajas</a></li>
-                    <li><a href="{{ route('home') }}#testimoni" class="hover:text-blue-400 transition">Testimonios</a></li>
+                    <li><a href="{{ route('home') }}#ventajas" class="hover:text-blue-400 transition">Ventajas</a></li>
+                    <li><a href="{{ route('home') }}#testimonios" class="hover:text-blue-400 transition">Testimonios</a></li>
                 </ul>
             </div>
             <div class="lg:col-span-3">
                 <h4 class="text-lg font-bold mb-4 text-white">Contáctanos</h4>
                 <ul class="space-y-3 text-slate-400 text-sm">
-                    <li class="flex items-center gap-3"><i class="fa-brands fa-whatsapp w-5 text-green-500"></i> +62 812-3456-7890</li>
-                    <li class="flex items-center gap-3"><i class="fa-regular fa-envelope w-5 text-blue-400"></i> help@habitat.com</li>
+                    <li class="flex items-center gap-3"><i class="fa-brands fa-whatsapp w-5 text-green-500"></i> +34 123456789</li>
+                    <li class="flex items-center gap-3"><i class="fa-regular fa-envelope w-5 text-blue-400"></i> help@habitatstudio.test</li>
                     <li class="flex items-center gap-3"><i class="fa-solid fa-location-dot w-5 text-red-500"></i> Cartagena, Murcia</li>
                 </ul>
             </div>
@@ -166,7 +166,7 @@
                 </form>
             </div>
         </div>
-        <div class="border-t border-slate-800 pt-8 text-center text-slate-500 text-xs">© {{ date('Y') }} Habitat. Todos los derechos reservados.</div>
+        <div class="border-t border-slate-800 pt-8 text-center text-slate-500 text-xs">© {{ date('Y') }} SobatKos. Todos los derechos reservados.</div>
     </div>
 </footer>
 

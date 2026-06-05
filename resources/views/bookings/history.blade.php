@@ -35,16 +35,16 @@
                         #INV-{{ $booking->id }} • {{ \Carbon\Carbon::parse($booking->created_at)->format('d M Y') }}
                     </p>
                     <div class="flex items-center justify-center md:justify-start gap-4 text-base">
-                        <span class="text-blue-600 font-bold text-lg">€ {{ number_format($booking->total_harga, 0, ',', '.') }}</span>
+                        <span class="text-blue-600 font-bold text-lg">€ {{ number_format($booking->precio_total, 0, ',', '.') }}</span>
                         <span class="text-slate-300">|</span>
-                        <span class="text-slate-600">{{ $booking->durasi }} Meses</span>
+                        <span class="text-slate-600">{{ $booking->duracion }} Meses</span>
                     </div>
                 </div>
 
                 <div class="w-full md:w-auto flex flex-col md:flex-row items-center gap-4 border-t md:border-t-0 border-slate-100 pt-5 md:pt-0">
 
                     <div class="flex-shrink-0 w-full md:w-36">
-                        @if($booking->status == 'Lunas')
+                        @if($booking->estado == 'Pagado')
                             <span class="h-12 w-full flex items-center justify-center rounded-xl text-sm font-bold bg-green-100 text-green-700 border-2 border-green-200 box-border">
                                 <i class="fa-solid fa-check mr-2"></i> Pagado
                             </span>
@@ -59,7 +59,7 @@
 
                     <div class="flex items-center gap-3 w-full md:w-auto">
 
-                        @if($booking->status == 'Pending')
+                        @if($booking->estado == 'Pendiente')
                             <a href="{{ route('bookings.payment', $booking->id) }}"
                                class="h-12 w-full md:w-48 flex items-center justify-center bg-slate-900 text-white rounded-xl text-sm font-bold border-2 border-transparent hover:bg-blue-700 hover:shadow-blue-500/30 transition shadow-lg whitespace-nowrap tracking-wide transform hover:-translate-y-0.5 box-border gap-2">
                                 Pagar ahora

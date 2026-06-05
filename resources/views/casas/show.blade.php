@@ -127,7 +127,7 @@
                             </a>
 
                             <p class="text-center text-xs text-slate-400 mt-3">
-                                <i class="fa-solid fa-shield-halved mr-1"></i> Transacción segura vía Habitat
+                                <i class="fa-solid fa-shield-halved mr-1"></i> Transacción segura vía HabitatS
                             </p>
                         </div>
                     </div>

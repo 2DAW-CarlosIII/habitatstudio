@@ -26,7 +26,7 @@
                 <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100 relative">
                     <form action="{{ route('bookings.store') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="kost_id" value="{{ $casa->id }}">
+                        <input type="hidden" name="casa_id" value="{{ $casa->id }}">
 
                         <div class="mb-6">
                             <h3 class="text-xl font-bold text-gray-900">Datos del inquilino</h3>
@@ -36,22 +36,22 @@
                         <div class="space-y-5">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Nombre completo</label>
-                                <input type="text" name="nama_penyewa" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition bg-gray-50">
+                                <input type="text" name="nombre_inquilino" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition bg-gray-50">
                             </div>
 
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Número de WhatsApp</label>
-                                <input type="number" name="no_hp" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition bg-gray-50">
+                                <input type="number" name="num_movil" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition bg-gray-50">
                             </div>
 
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Fecha de inicio</label>
-                                    <input type="date" name="tanggal_mulai" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition bg-gray-50">
+                                    <input type="date" name="fecha_inicio" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition bg-gray-50">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Duración (meses)</label>
-                                    <input type="number" id="duration" name="durasi" value="1" min="1" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition bg-gray-50">
+                                    <input type="number" id="duration" name="duracion" value="1" min="1" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition bg-gray-50">
                                 </div>
                             </div>
                         </div>

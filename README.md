@@ -1,10 +1,10 @@
-# 🏠 Habitat - Modern Boarding House Finder
+# 🏠 HabitatStudio - Modern Boarding House Finder
 
 ![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
 
-**Habitat** is a modern, responsive web application designed to simplify the process of finding and booking boarding houses (*Casa*). Built with **Laravel 10** and **Tailwind CSS**, this project focuses on delivering a premium user experience through interactive UI design and robust functionality.
+**HabitatStudio** is a modern, responsive web application designed to simplify the process of finding and booking boarding houses (*Casa*). Built with **Laravel 10** and **Tailwind CSS**, this project focuses on delivering a premium user experience through interactive UI design and robust functionality.
 
 This project serves as a Full-Stack Web Development Portfolio.
 

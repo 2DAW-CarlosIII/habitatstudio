@@ -24,7 +24,7 @@
             </div>
             <div class="flex justify-between mb-3">
                 <span class="text-slate-500 text-xs">Total pagado</span>
-                <span class="font-bold text-blue-600 text-sm">€ {{ number_format($booking->total_harga, 0, ',', '.') }}</span>
+                <span class="font-bold text-blue-600 text-sm">€ {{ number_format($booking->precio_total, 0, ',', '.') }}</span>
             </div>
             <div class="flex justify-between">
                 <span class="text-slate-500 text-xs">Fecha y hora</span>

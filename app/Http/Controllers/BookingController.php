@@ -42,24 +42,24 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kost_id' => 'required|exists:casas,id',
-            'nama_penyewa' => 'required|string|max:255',
-            'no_hp' => 'required|string|max:20',
-            'tanggal_mulai' => 'required|date',
-            'durasi' => 'required|integer|min:1',
+            'casa_id' => 'required|exists:casas,id',
+            'nombre_inquilino' => 'required|string|max:255',
+            'num_movil' => 'required|string|max:20',
+            'fecha_inicio' => 'required|date',
+            'duracion' => 'required|integer|min:1',
         ]);
 
-        $casa = DB::table('casas')->where('id', $request->kost_id)->first();
-        $total_harga = $casa->precio * $request->durasi;
+        $casa = DB::table('casas')->where('id', $request->casa_id)->first();
+        $precio_total = $casa->precio * $request->duracion;
 
         $bookingId = DB::table('bookings')->insertGetId([
-            'kost_id' => $request->kost_id,
-            'nama_penyewa' => $request->nama_penyewa,
-            'no_hp' => $request->no_hp,
-            'tanggal_mulai' => $request->tanggal_mulai,
-            'durasi' => $request->durasi,
-            'total_harga' => $total_harga,
-            'status' => 'Pending',
+            'casa_id' => $request->casa_id,
+            'nombre_inquilino' => $request->nombre_inquilino,
+            'num_movil' => $request->num_movil,
+            'fecha_inicio' => $request->fecha_inicio,
+            'duracion' => $request->duracion,
+            'precio_total' => $precio_total,
+            'estado' => 'Pendiente',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -71,7 +71,7 @@ class BookingController extends Controller
     public function payment($id)
     {
         $booking = DB::table('bookings')
-            ->join('casas', 'bookings.kost_id', '=', 'casas.id')
+            ->join('casas', 'bookings.casa_id', '=', 'casas.id')
             ->select('bookings.*', 'casas.nombre_casa', 'casas.ubicacion')
             ->where('bookings.id', $id)
             ->first();
@@ -85,29 +85,29 @@ class BookingController extends Controller
     public function processPayment(Request $request, $id)
     {
         $request->validate([
-            'bukti_bayar' => 'required|image|mimes:jpeg,png,jpg|max:10240',
+            'comprobante_pago' => 'required|image|mimes:jpeg,png,jpg|max:10240',
         ]);
 
-        if ($request->hasFile('bukti_bayar')) {
-            $path = $request->file('bukti_bayar')->store('uploads', 'public');
+        if ($request->hasFile('comprobante_pago')) {
+            $path = $request->file('comprobante_pago')->store('uploads', 'public');
 
             DB::table('bookings')->where('id', $id)->update([
-                'bukti_bayar' => 'storage/' . $path,
-                'status' => 'Lunas',
+                'comprobante_pago' => 'storage/' . $path,
+                'estado' => 'Pagado',
                 'updated_at' => now(),
             ]);
 
             return redirect()->route('bookings.success', $id);
         }
 
-        return back()->withErrors(['bukti_bayar' => 'Gagal mengupload file. Silakan coba lagi.']);
+        return back()->withErrors(['comprobante_pago' => 'Gagal mengupload file. Silakan coba lagi.']);
     }
 
     // 7. Halaman Sukses
     public function success($id)
     {
         $booking = DB::table('bookings')
-            ->join('casas', 'bookings.kost_id', '=', 'casas.id')
+            ->join('casas', 'bookings.casa_id', '=', 'casas.id')
             ->select('bookings.*', 'casas.nombre_casa', 'casas.ubicacion')
             ->where('bookings.id', $id)
             ->first();
@@ -121,7 +121,7 @@ class BookingController extends Controller
     public function history()
     {
         $bookings = DB::table('bookings')
-            ->join('casas', 'bookings.kost_id', '=', 'casas.id')
+            ->join('casas', 'bookings.casa_id', '=', 'casas.id')
             ->select('bookings.*', 'casas.nombre_casa', 'casas.imagen_url')
             ->orderByDesc('bookings.created_at')
             ->get();
@@ -136,8 +136,8 @@ class BookingController extends Controller
 
         if ($booking) {
             // Hapus file bukti bayar dari penyimpanan jika ada
-            if ($booking->bukti_bayar && file_exists(public_path($booking->bukti_bayar))) {
-                unlink(public_path($booking->bukti_bayar));
+            if ($booking->comprobante_pago && file_exists(public_path($booking->comprobante_pago))) {
+                unlink(public_path($booking->comprobante_pago));
             }
 
             // Hapus data dari database

@@ -104,7 +104,7 @@
 <section id="keunggulan" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-slate-900">¿Por qué Habitat?</h2>
+            <h2 class="text-3xl font-bold text-slate-900">¿Por qué HabitatStudio?</h2>
             <p class="text-slate-500 mt-2">Diferente a los demás, entendemos tus necesidades.</p>
         </div>
 
@@ -178,7 +178,7 @@
                 <div class="text-yellow-400 text-sm mb-3">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
-                <p class="text-slate-600 text-sm">"Habitat fue un salvavidas cuando necesitaba alojamiento por días durante la orientación universitaria."</p>
+                <p class="text-slate-600 text-sm">"HabitatStudio fue un salvavidas cuando necesitaba alojamiento por días durante la orientación universitaria."</p>
             </div>
         </div>
     </div>
