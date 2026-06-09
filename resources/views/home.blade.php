@@ -45,143 +45,15 @@
 </section>
 
 <section id="recomendaciones" class="py-20 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-end mb-12">
-            <div>
-                <h2 class="text-3xl font-bold text-slate-900">Recomendaciones de alojamientos</h2>
-                <p class="text-slate-500 mt-2">Favoritos en tu zona (selección aleatoria).</p>
-            </div>
-            <a href="{{ route('casas.index') }}" class="text-blue-600 font-bold text-sm hover:underline">Ver todo <i class="fa-solid fa-arrow-right ml-1"></i></a>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            @foreach($casas as $casa)
-            <div class="bg-white rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-1 transition duration-300 overflow-hidden border border-gray-100 group flex flex-col h-full">
-                <div class="relative h-56 overflow-hidden flex-shrink-0">
-                    <img src="{{ $casa->imagen_url }}" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
-
-                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-slate-800 shadow-sm">
-                        {{ $casa->tipo }}
-                    </div>
-
-                    <div class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur px-2 py-1 rounded-lg text-xs font-bold text-yellow-400 shadow-sm flex items-center gap-1">
-                        <i class="fa-solid fa-star"></i>
-                        <span>{{ $casa->valoracion }}</span>
-                    </div>
-                </div>
-                <div class="p-6 flex flex-col flex-1">
-                    <div class="flex-1">
-                        <h3 class="text-lg font-bold text-slate-900 line-clamp-1 mb-2">{{ $casa->nombre_casa }}</h3>
-                        <p class="text-slate-500 text-sm mb-4 flex items-center">
-                            <i class="fa-solid fa-location-dot text-red-500 mr-2"></i> {{ $casa->ubicacion }}
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            @foreach(array_slice(explode(',', $casa->instalaciones), 0, 3) as $instalaciones)
-                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded border border-slate-200">{{ $instalaciones }}</span>
-                            @endforeach
-                            @if(count(explode(',', $casa->instalaciones)) > 3)
-                                <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded border border-slate-200">+{{ count(explode(',', $casa->instalaciones)) - 3 }}</span>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="flex justify-between items-center border-t border-slate-100 pt-4 mt-auto">
-                        <div>
-                            <div class="text-lg font-bold text-blue-600">€ {{ number_format($casa->precio, 0, ',', '.') }}</div>
-                            <div class="text-xs text-slate-400">/ mes</div>
-                        </div>
-
-                        <a href="{{ route('casas.show', $casa->id) }}" class="bg-slate-900 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition shadow-lg transform hover:-translate-y-0.5 hover:shadow-blue-500/30">
-                            Ver
-                        </a>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
+@include('partials.recomendaciones')
 </section>
 
 <section id="ventajas" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-slate-900">¿Por qué HabitatStudio?</h2>
-            <p class="text-slate-500 mt-2">Diferente a los demás, entendemos tus necesidades.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="p-8 rounded-3xl bg-slate-50 hover:bg-white hover:shadow-xl transition duration-300 border border-transparent hover:border-gray-100 text-center group">
-                <div class="w-16 h-16 mx-auto bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
-                    <i class="fa-solid fa-tag"></i>
-                </div>
-                <h3 class="text-xl font-bold text-slate-800 mb-3">Precio justo</h3>
-                <p class="text-slate-500 text-sm">No hay comisiones ocultas. Paga el precio indicado.</p>
-            </div>
-            <div class="p-8 rounded-3xl bg-slate-50 hover:bg-white hover:shadow-xl transition duration-300 border border-transparent hover:border-gray-100 text-center group">
-                <div class="w-16 h-16 mx-auto bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
-                <h3 class="text-xl font-bold text-slate-800 mb-3">Verificado</h3>
-                <p class="text-slate-500 text-sm">Todos los alojamientos han sido inspeccionados por nuestro equipo. Sin sorpresas.</p>
-            </div>
-            <div class="p-8 rounded-3xl bg-slate-50 hover:bg-white hover:shadow-xl transition duration-300 border border-transparent hover:border-gray-100 text-center group">
-                <div class="w-16 h-16 mx-auto bg-green-100 text-green-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
-                    <i class="fa-solid fa-bolt"></i>
-                </div>
-                <h3 class="text-xl font-bold text-slate-800 mb-3">Reserva rápida</h3>
-                <p class="text-slate-500 text-sm">Proceso de reserva instantáneo, pago automático y confirmación inmediata.</p>
-            </div>
-        </div>
-    </div>
+@include('partials.ventajas')
 </section>
 
 <section id="testimonios" class="py-20 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-slate-900">Testimonios</h2>
-            <p class="text-slate-500 mt-2">Quienes ya han encontrado un hogar cómodo.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="p-8 rounded-2xl bg-white border border-slate-100 shadow-sm">
-                <div class="flex items-center gap-4 mb-4">
-                    <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-12 h-12 rounded-full object-cover">
-                    <div>
-                        <h4 class="font-bold text-slate-900">Sarah Putri</h4>
-                        <p class="text-xs text-slate-500">Estudiante de UNPAD</p>
-                    </div>
-                </div>
-                <div class="text-yellow-400 text-sm mb-3">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="text-slate-600 text-sm">"Al llegar, el alojamiento era exactamente como en las fotos. ¡El admin respondió rapidísimo!"</p>
-            </div>
-            <div class="p-8 rounded-2xl bg-white border border-slate-100 shadow-sm">
-                <div class="flex items-center gap-4 mb-4">
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full object-cover">
-                    <div>
-                        <h4 class="font-bold text-slate-900">Dimas Anggara</h4>
-                        <p class="text-xs text-slate-500">Empleado</p>
-                    </div>
-                </div>
-                <div class="text-yellow-400 text-sm mb-3">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                </div>
-                <p class="text-slate-600 text-sm">"La función de filtros me ayudó mucho a encontrar alojamientos con aparcamiento para coches."</p>
-            </div>
-            <div class="p-8 rounded-2xl bg-white border border-slate-100 shadow-sm">
-                <div class="flex items-center gap-4 mb-4">
-                    <img src="https://randomuser.me/api/portraits/women/65.jpg" class="w-12 h-12 rounded-full object-cover">
-                    <div>
-                        <h4 class="font-bold text-slate-900">Rina Wati</h4>
-                        <p class="text-xs text-slate-500">Estudiante de ITB</p>
-                    </div>
-                </div>
-                <div class="text-yellow-400 text-sm mb-3">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="text-slate-600 text-sm">"HabitatStudio fue un salvavidas cuando necesitaba alojamiento por días durante la orientación universitaria."</p>
-            </div>
-        </div>
-    </div>
+@include('partials.testimonios')
 </section>
 
 @endsection
