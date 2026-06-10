@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('casa_id')->constrained('casas')->onDelete('cascade');
-            $table->string('nombre_inquilino');
+            $table->foreignId('inquilino_id')->constrained('users')->onDelete('cascade');
             $table->string('num_movil');
             $table->date('fecha_inicio');
             $table->integer('duracion'); // En meses
