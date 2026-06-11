@@ -3,33 +3,42 @@
          xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
          bootstrap="vendor/autoload.php"
          colors="true"
+         stopOnFailure="false"
 >
     <testsuites>
         <testsuite name="Unit">
             <directory>tests/Unit</directory>
         </testsuite>
-        <testsuite name="Feature">
-            <directory>tests/Feature</directory>
+        <testsuite name="RA5 - Bloque A">
+            <file>tests/Feature/BloqueATest.php</file>
+        </testsuite>
+        <testsuite name="RA6 - Bloque B">
+            <file>tests/Feature/BloqueBTest.php</file>
+        </testsuite>
+        <testsuite name="RA7 - Bloque C">
+            <file>tests/Feature/BloqueCTest.php</file>
         </testsuite>
     </testsuites>
+
+    <!-- Extensión PHPUnit 10/11: sustituye al antiguo <listeners> -->
+    <extensions>
+        <bootstrap class="Tests\Support\PuntosExtension"/>
+    </extensions>
+
+    <!-- Base de datos SQLite en memoria: cada ejecución parte de cero -->
+    <php>
+        <env name="APP_ENV"              value="testing"/>
+        <env name="DB_CONNECTION"        value="sqlite"/>
+        <env name="DB_DATABASE"          value=":memory:"/>
+        <env name="SESSION_DRIVER"       value="array"/>
+        <env name="CACHE_DRIVER"         value="array"/>
+        <env name="QUEUE_CONNECTION"     value="sync"/>
+        <env name="SANCTUM_STATEFUL_DOMAINS" value="localhost"/>
+    </php>
+
     <source>
         <include>
             <directory>app</directory>
         </include>
     </source>
-    <php>
-        <env name="APP_ENV" value="testing"/>
-        <env name="APP_MAINTENANCE_DRIVER" value="file"/>
-        <env name="BCRYPT_ROUNDS" value="4"/>
-        <env name="BROADCAST_CONNECTION" value="null"/>
-        <env name="CACHE_STORE" value="array"/>
-        <env name="DB_CONNECTION" value="sqlite"/>
-        <env name="DB_DATABASE" value=":memory:"/>
-        <env name="MAIL_MAILER" value="array"/>
-        <env name="QUEUE_CONNECTION" value="sync"/>
-        <env name="SESSION_DRIVER" value="array"/>
-        <env name="PULSE_ENABLED" value="false"/>
-        <env name="TELESCOPE_ENABLED" value="false"/>
-        <env name="NIGHTWATCH_ENABLED" value="false"/>
-    </php>
 </phpunit>
