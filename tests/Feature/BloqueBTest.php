@@ -270,10 +270,11 @@ class BloqueBTest extends TestCase
     #[Puntos(0.5, 'RA6', 'B4')]
     public function test_no_inquilino_no_puede_editar_testimonio(): void
     {
+        $inquilino = $this->crearInquilino();
         $noInquilino = $this->crearUsuario();
         // Creamos el testimonio directamente sin pasar por la validación de inquilino
         $t = Testimonio::create([
-            'user_id'    => $noInquilino->id,
+            'user_id'    => $inquilino->id,
             'contenido'  => 'Test',
             'valoracion' => 4.0,
         ]);
@@ -287,9 +288,10 @@ class BloqueBTest extends TestCase
     #[Puntos(0.5, 'RA6', 'B4')]
     public function test_no_inquilino_no_puede_eliminar_testimonio(): void
     {
+        $inquilino = $this->crearInquilino();
         $noInquilino = $this->crearUsuario();
         $t = Testimonio::create([
-            'user_id'    => $noInquilino->id,
+            'user_id'    => $inquilino->id,
             'contenido'  => 'Test',
             'valoracion' => 4.0,
         ]);
@@ -352,9 +354,9 @@ class BloqueBTest extends TestCase
         $user        = $this->crearInquilino();
         $t           = $this->crearTestimonio(['user_id' => $user->id, 'casa_id' => $casa->id]);
 
-        $antes = now();
+        $antes = now()->subMinute(); // margen de 5 segundos para evitar falsos negativos
         $this->actingAs($propietario)->put("/testimonios/{$t->id}/approve");
-        $despues = now();
+        $despues = now()->addMinute();
 
         $fechaAprobacion = $t->fresh()->fecha_aprobacion;
         $this->assertNotNull($fechaAprobacion);

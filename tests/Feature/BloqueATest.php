@@ -167,14 +167,14 @@ class BloqueATest extends TestCase
     #[Puntos(0.5, 'RA5', 'A4')]
     public function test_seeder_inserta_al_menos_5_testimonios(): void
     {
-        Artisan::call('db:seed', ['--class' => 'TestimonioSeeder']);
+        Artisan::call('db:seed');
         $this->assertGreaterThanOrEqual(5, Testimonio::count());
     }
 
     #[Puntos(0.25, 'RA5', 'A4')]
     public function test_seeder_tiene_al_menos_2_aprobados(): void
     {
-        Artisan::call('db:seed', ['--class' => 'TestimonioSeeder']);
+        Artisan::call('db:seed');
         $this->assertGreaterThanOrEqual(
             2,
             Testimonio::whereNotNull('fecha_aprobacion')->count()
@@ -184,7 +184,7 @@ class BloqueATest extends TestCase
     #[Puntos(0.25, 'RA5', 'A4')]
     public function test_seeder_tiene_al_menos_1_sin_casa(): void
     {
-        Artisan::call('db:seed', ['--class' => 'TestimonioSeeder']);
+        Artisan::call('db:seed');
         $this->assertGreaterThanOrEqual(
             1,
             Testimonio::whereNull('casa_id')->count()
@@ -194,7 +194,7 @@ class BloqueATest extends TestCase
     #[Puntos(0, 'RA5', 'A4')]
     public function test_seeder_tiene_valoracion_con_decimal(): void
     {
-        Artisan::call('db:seed', ['--class' => 'TestimonioSeeder']);
+        Artisan::call('db:seed');
         $conDecimal = Testimonio::all()->filter(
             fn($t) => fmod((float) $t->valoracion, 1.0) !== 0.0
         );
@@ -204,7 +204,7 @@ class BloqueATest extends TestCase
     #[Puntos(0, 'RA5', 'A4')]
     public function test_seeder_user_ids_son_inquilinos(): void
     {
-        Artisan::call('db:seed', ['--class' => 'TestimonioSeeder']);
+        Artisan::call('db:seed');
         $userIds = Testimonio::pluck('user_id')->unique();
         foreach ($userIds as $uid) {
             $esInquilino = Booking::where('inquilino_id', $uid)->exists();
