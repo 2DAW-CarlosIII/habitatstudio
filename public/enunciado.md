@@ -30,6 +30,7 @@ La aplicación ya dispone de un sistema de reservas (`bookings`) que relaciona c
 - Los esquemas _mermaid_ los puedes encontrar en este mismo repositorio:
   - [esquema inicial](http://habitatstudio.test/esquema_inicial.html)
   - [esquema final](http://habitatstudio.test/esquema_final.html)
+- Sólo como consulta, puedes utilizar `php artisan test`. También tienes la posibilidad de ejecutar únicamente los tests relacionados con uno de los bloques. Las instrucciones de ejecución las encontrarás en el archivo `tests/README.md`.
 
 ---
 
