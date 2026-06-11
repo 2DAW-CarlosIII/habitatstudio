@@ -13,13 +13,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // 1. Buat User Test (Bawaan Laravel, boleh dibiarkan)
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
 
-        // 2. PANGGIL KOST SEEDER DI SINI (Wajib!)
         $this->call([
             CasaSeeder::class,
         ]);

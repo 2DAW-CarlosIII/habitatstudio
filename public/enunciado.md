@@ -18,7 +18,7 @@ La aplicación ya dispone de un sistema de reservas (`bookings`) que relaciona c
 ## Preparación del entorno
 
 - Haz un *fork* del repositorio [habitatstudio](https://github.com/2DAW-CarlosIII/habitatstudio) y clónalo en tu equipo.
-- Cre la rama **segundaConvocatoria**, al finalizar, tendrás que hacer un *Pull Request* de esa rama.
+- Crea la rama **segundaConvocatoria**, al finalizar, tendrás que hacer un *Pull Request* de esa rama.
 
 **Notas:**
 
@@ -73,7 +73,7 @@ Crea una nueva migración que añada los siguientes campos a la tabla `users`:
 
 ---
 
-### A3 — Migración y modelo `Testimonio` `(1 ptos.)`
+### A3 — Migración y modelo `Testimonio` `(1 pto.)`
 
 Crea la migración para la tabla `testimonios` con los siguientes atributos:
 
@@ -101,7 +101,7 @@ Crea un `TestimonioSeeder` que inserte al menos **5 testimonios** de ejemplo con
 - Al menos 1 testimonio debe tener una valoración con decimal (p. ej. `4.5`).
 - Los `user_id` deben corresponder a usuarios que sean inquilinos (que existan en `bookings`).
 
-> `TestimonioSeeder` se deberá ejecutar directamente al lanzar `php artisan db:seed`
+> `TestimonioSeeder` se deberá ejecutar directamente al lanzar `php artisan db:seed` o con `migrate:fresh --seed`
 
 ---
 
@@ -150,7 +150,7 @@ Crea un `TestimonioController` con todas sus rutas bajo el prefijo `/testimonios
 
 ---
 
-### B2 — Listado y creación `(1 ptos.)`
+### B2 — Listado y creación `(1 pto.)`
 
 **a) `index`:** muestra todos los testimonios del usuario autenticado (aprobados y pendientes), ordenados por fecha de creación descendente. Puedes reutilizar el mismo contenido _blade_ que el del *partial* `resources/views/partials/testimonios.blade.php`. Incluye en cada tarjeta el estado de aprobación (`Aprobado` / `Pendiente`).
 
@@ -170,7 +170,7 @@ El método `store` debe:
 
 ---
 
-### B3 — Edición y eliminación `(2 pto.)`
+### B3 — Edición y eliminación `(2 ptos.)`
 
 **`edit` y `update`:** permiten al usuario autenticado editar su propio testimonio, pero únicamente si aún no ha sido aprobado (`fecha_aprobacion` es `NULL`). Si el testimonio ya está aprobado, redirige al `index` con un mensaje de error.
 
@@ -178,9 +178,9 @@ El método `store` debe:
 
 ---
 
-### B4 — Restricción a inquilinos `(2 pto.)`
+### B4 — Restricción a inquilinos `(2 ptos.)`
 
-Únicamente los usuarios que aparezcan como `inquilino_id` en al menos un registro de la tabla `bookings` podrán crear testimonios.
+Únicamente los usuarios que aparezcan como `inquilino_id` en al menos un registro de la tabla `bookings` podrán modificar (C - U - D) testimonios.
 
 ---
 
@@ -209,13 +209,15 @@ Implementa la ruta:
 GET /testimonios/{testimonio}/revisar
 ```
 
-que permitirá a los administradores revisar los testimonios pendientes de aprobación. Al ejecutarse correctamente:
+que permitirá al administrador revisar los testimonios pendientes de aprobación. Al ejecutarse correctamente:
 
 - Devolverá una vista con el contenido del testimonio y un formulario para aprobar o rechazar.
 - Si se aprueba, actualizará `fecha_aprobacion` con la fecha y hora actuales (`now()`) y redirigirá al listado de testimonios con un mensaje de confirmación.
 - Si se rechaza, eliminará el testimonio y redirigirá al listado de testimonios con un mensaje de confirmación.
 
 > Implementa la autorización mediante una `Policy` sobre el modelo `Testimonio`, con un método `before` que devuelva `true` únicamente si el usuario autenticado es el administrador.
+
+> Las credenciales del _administrador_ serán las del único usuario que se genera al hacer el _seeder_ de la base de datos.
 
 ---
 
@@ -228,7 +230,7 @@ que permitirá a los administradores revisar los testimonios pendientes de aprob
 
 ### C1 — Listado público de testimonios aprobados `(1 pto.)`
 
-Crea un `TestimonioResource` que exponga: `id`, `testimonio`, `valoracion`, `fecha_aprobacion`, el `name` y `avatar_url` del usuario, y —si existe— el `nombre_casa` de la casa referenciada.
+Crea un `TestimonioResource` que exponga: `id`, `contenido`, `valoracion`, `fecha_aprobacion`, el `name` y `avatar_url` del usuario, y —si existe— el `nombre_casa` de la casa referenciada.
 
 Implementa el endpoint público (sin autenticación):
 
@@ -240,7 +242,7 @@ que devuelva una colección de `TestimonioResource` con todos los testimonios qu
 
 ---
 
-### C2 — Comentarios de una casa `(1 pto.)`
+### C2 — Testimonios de una casa `(1 pto.)`
 
 Implementa el endpoint público:
 
@@ -279,7 +281,7 @@ DELETE /api/v1/testimonios/{testimonio}
 PUT   /api/v1/testimonios/{testimonio}/approve
 ```
 
-Aplica sobre cada uno la misma `Policy` del modelo `Testimonio` utilizada en el Bloque B, adaptada a respuestas JSON:
+Implementa la autorización mediante una `Policy` sobre el modelo `Testimonio`, con las siguientes reglas:
 
 - **`update`**: solo el autor del testimonio y solo si no está aprobado. Devuelve el `TestimonioResource` actualizado.
 - **`destroy`**: solo el autor. Devuelve `204 No Content`.
