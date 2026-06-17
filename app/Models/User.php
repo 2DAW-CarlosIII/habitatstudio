@@ -48,6 +48,15 @@ class User extends Authenticatable
     }
 
     public function testimonios(): HasMany {
-        return $this->hasMany(Testimonio::class);
+        return $this->hasMany(Testimonio::class, 'user_id');
+    }
+
+    public function casas(): HasMany {
+        return $this->hasMany(Casa::class, 'propietario_id');
+    }
+
+
+    public function bookings(): HasMany {
+        return $this->hasMany(Booking::class, 'inquilino_id');
     }
 }
