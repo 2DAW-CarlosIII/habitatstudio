@@ -16,7 +16,13 @@ class BookingController extends Controller
                     ->take(3)
                     ->get();
 
-        return view('home', compact('casas'));
+        $testimonios = DB::table('testimonios')
+                        ->whereNotNull('fecha_aprobacion')
+                        ->get();
+
+        //dd($testimonios);
+
+        return view('home', compact('casas', 'testimonios'));
     }
 
     // 2. Detail Casa

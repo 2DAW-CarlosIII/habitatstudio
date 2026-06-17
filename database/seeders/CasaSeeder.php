@@ -11,7 +11,7 @@ class CasaSeeder extends Seeder
     {
         $casas = [
             [
-                'nombre_casa' => 'Residencia Puerto Ensanche',
+                //'nombre_casa' => 'Residencia Puerto Ensanche',
                 'tipo' => 'Mixto',
                 'precio' => 247.06,
                 'ubicacion' => 'Ensanche, Cartagena',
@@ -24,7 +24,7 @@ class CasaSeeder extends Seeder
                 'valoracion' => 4.9,
             ],
             [
-                'nombre_casa' => 'Piso Estación Central',
+                //'nombre_casa' => 'Piso Estación Central',
                 'tipo' => 'Masculino',
                 'precio' => 170.59,
                 'ubicacion' => 'Área de la Estación, Cartagena',
@@ -37,7 +37,7 @@ class CasaSeeder extends Seeder
                 'valoracion' => 4.5,
             ],
             [
-                'nombre_casa' => 'Pensión Manolo',
+                //'nombre_casa' => 'Pensión Manolo',
                 'tipo' => 'Femenino',
                 'precio' => 188.24,
                 'ubicacion' => 'Peral, Cartagena',
@@ -50,7 +50,7 @@ class CasaSeeder extends Seeder
                 'valoracion' => 4.7,
             ],
             [
-                'nombre_casa' => 'Piso Canalejas',
+                //'nombre_casa' => 'Piso Canalejas',
                 'tipo' => 'Mixto',
                 'precio' => 205.88,
                 'ubicacion' => 'Ciudad Jardín, Cartagena',
@@ -63,7 +63,7 @@ class CasaSeeder extends Seeder
                 'valoracion' => 4.8,
             ],
             [
-                'nombre_casa' => 'Estudio Bahía Norte',
+                //'nombre_casa' => 'Estudio Bahía Norte',
                 'tipo' => 'Masculino',
                 'precio' => 155.88,
                 'ubicacion' => 'San Antón, Cartagena',
@@ -78,7 +78,7 @@ class CasaSeeder extends Seeder
 
             // --- ZONA CIFP CARLOS III ---
             [
-                'nombre_casa' => 'Residencia Gran Cartagena',
+                //'nombre_casa' => 'Residencia Gran Cartagena',
                 'tipo' => 'Mixto',
                 'precio' => 217.65,
                 'ubicacion' => 'CIFP Carlos III, Cartagena',
@@ -91,7 +91,7 @@ class CasaSeeder extends Seeder
                 'valoracion' => 4.8,
             ],
             [
-                'nombre_casa' => 'Piso Femenino Encomienda',
+                //'nombre_casa' => 'Piso Femenino Encomienda',
                 'tipo' => 'Femenino',
                 'precio' => 150.00,
                 'ubicacion' => 'La Aljorra, Cartagena',
@@ -104,7 +104,7 @@ class CasaSeeder extends Seeder
                 'valoracion' => 4.4,
             ],
             [
-                'nombre_casa' => 'La Almazara',
+                //'nombre_casa' => 'La Almazara',
                 'tipo' => 'Masculino',
                 'precio' => 164.71,
                 'ubicacion' => 'Los Dolores, Cartagena',
@@ -117,7 +117,7 @@ class CasaSeeder extends Seeder
                 'valoracion' => 4.5,
             ],
             [
-                'nombre_casa' => 'Apartamento Artistas',
+                //'nombre_casa' => 'Apartamento Artistas',
                 'tipo' => 'Mixto',
                 'precio' => 264.71,
                 'ubicacion' => 'Zona Mandarache, Cartagena',
@@ -131,7 +131,7 @@ class CasaSeeder extends Seeder
             ],
 
             [
-                'nombre_casa' => 'Piso Naval',
+                //'nombre_casa' => 'Piso Naval',
                 'tipo' => 'Mixto',
                 'precio' => 229.41,
                 'ubicacion' => 'Barrio del Peral, Cartagena',
@@ -144,7 +144,7 @@ class CasaSeeder extends Seeder
                 'valoracion' => 4.8,
             ],
             [
-                'nombre_casa' => 'Grandes músicos',
+                //'nombre_casa' => 'Grandes músicos',
                 'tipo' => 'Femenino',
                 'precio' => 158.82,
                 'ubicacion' => 'Conservatorio, Cartagena',
@@ -157,7 +157,7 @@ class CasaSeeder extends Seeder
                 'valoracion' => 4.6,
             ],
             [
-                'nombre_casa' => 'Alojamiento Empleados Renfe',
+                //'nombre_casa' => 'Alojamiento Empleados Renfe',
                 'tipo' => 'Masculino',
                 'precio' => 194.12,
                 'ubicacion' => 'Estación, Cartagena',
@@ -171,7 +171,7 @@ class CasaSeeder extends Seeder
             ],
 
             [
-                'nombre_casa' => 'Piso Ruiz',
+                //'nombre_casa' => 'Piso Ruiz',
                 'tipo' => 'Mixto',
                 'precio' => 147.06,
                 'ubicacion' => 'Los Barreros, Cartagena',
@@ -184,7 +184,7 @@ class CasaSeeder extends Seeder
                 'valoracion' => 4.2,
             ],
             [
-                'nombre_casa' => 'Residencia La Italiana',
+                //'nombre_casa' => 'Residencia La Italiana',
                 'tipo' => 'Femenino',
                 'precio' => 152.94,
                 'ubicacion' => 'Santa Ana, Cartagena',
@@ -198,7 +198,7 @@ class CasaSeeder extends Seeder
             ],
 
             [
-                'nombre_casa' => 'Villa Litoral Cartagena',
+                //'nombre_casa' => 'Villa Litoral Cartagena',
                 'tipo' => 'Mixto',
                 'precio' => 188.24,
                 'ubicacion' => 'Atamaría, Cartagena',
