@@ -11,5 +11,5 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 Route::prefix('v1')->group(function () {
     Route::apiResource('testimonios', TestimonioController::class);
     Route::get('/casas/{casa}/testimonios', [TestimonioController::class, 'testimoniosAprobados']);
-    Route::apiResource('testimonios', TestimonioController::class, 'POST')
+    Route::apiResource('testimonios', TestimonioController::class);
 });
