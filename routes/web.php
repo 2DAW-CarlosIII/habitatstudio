@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\TestimonioController;
 
 Route::get('/', [BookingController::class, 'index'])->name('home');
 
@@ -21,6 +22,8 @@ Route::get('/history', [BookingController::class, 'history'])->name('bookings.hi
 Route::delete('/booking/delete/{id}', [BookingController::class, 'destroy'])->name('bookings.destroy');
 
 Route::get('/buscar-casa', [BookingController::class, 'search'])->name('casas.index');
+
+Route::resource('/testimonios', TestimonioController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

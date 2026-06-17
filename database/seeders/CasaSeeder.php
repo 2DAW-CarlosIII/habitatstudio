@@ -11,6 +11,7 @@ class CasaSeeder extends Seeder
     {
         $casas = [
             [
+                'propietario_id' => 1,
                 'nombre_casa' => 'Residencia Puerto Ensanche',
                 'tipo' => 'Mixto',
                 'precio' => 247.06,
@@ -24,6 +25,7 @@ class CasaSeeder extends Seeder
                 'valoracion' => 4.9,
             ],
             [
+                'propietario_id' => 2,
                 'nombre_casa' => 'Piso Estación Central',
                 'tipo' => 'Masculino',
                 'precio' => 170.59,
@@ -37,6 +39,7 @@ class CasaSeeder extends Seeder
                 'valoracion' => 4.5,
             ],
             [
+                'propietario_id' => 3,
                 'nombre_casa' => 'Pensión Manolo',
                 'tipo' => 'Femenino',
                 'precio' => 188.24,
@@ -50,6 +53,7 @@ class CasaSeeder extends Seeder
                 'valoracion' => 4.7,
             ],
             [
+                'propietario_id' => 4,
                 'nombre_casa' => 'Piso Canalejas',
                 'tipo' => 'Mixto',
                 'precio' => 205.88,
@@ -63,6 +67,7 @@ class CasaSeeder extends Seeder
                 'valoracion' => 4.8,
             ],
             [
+                'propietario_id' => 5,
                 'nombre_casa' => 'Estudio Bahía Norte',
                 'tipo' => 'Masculino',
                 'precio' => 155.88,
@@ -78,6 +83,7 @@ class CasaSeeder extends Seeder
 
             // --- ZONA CIFP CARLOS III ---
             [
+                'propietario_id' => 6,
                 'nombre_casa' => 'Residencia Gran Cartagena',
                 'tipo' => 'Mixto',
                 'precio' => 217.65,
@@ -91,6 +97,7 @@ class CasaSeeder extends Seeder
                 'valoracion' => 4.8,
             ],
             [
+                'propietario_id' => 7,
                 'nombre_casa' => 'Piso Femenino Encomienda',
                 'tipo' => 'Femenino',
                 'precio' => 150.00,
@@ -104,6 +111,7 @@ class CasaSeeder extends Seeder
                 'valoracion' => 4.4,
             ],
             [
+                'propietario_id' => 8,
                 'nombre_casa' => 'La Almazara',
                 'tipo' => 'Masculino',
                 'precio' => 164.71,
@@ -117,6 +125,7 @@ class CasaSeeder extends Seeder
                 'valoracion' => 4.5,
             ],
             [
+                'propietario_id' => 9,
                 'nombre_casa' => 'Apartamento Artistas',
                 'tipo' => 'Mixto',
                 'precio' => 264.71,
@@ -131,6 +140,7 @@ class CasaSeeder extends Seeder
             ],
 
             [
+                'propietario_id' => 10,
                 'nombre_casa' => 'Piso Naval',
                 'tipo' => 'Mixto',
                 'precio' => 229.41,
@@ -144,6 +154,7 @@ class CasaSeeder extends Seeder
                 'valoracion' => 4.8,
             ],
             [
+                'propietario_id' => 11,
                 'nombre_casa' => 'Grandes músicos',
                 'tipo' => 'Femenino',
                 'precio' => 158.82,
@@ -157,6 +168,7 @@ class CasaSeeder extends Seeder
                 'valoracion' => 4.6,
             ],
             [
+                'propietario_id' => 12,
                 'nombre_casa' => 'Alojamiento Empleados Renfe',
                 'tipo' => 'Masculino',
                 'precio' => 194.12,
@@ -171,6 +183,7 @@ class CasaSeeder extends Seeder
             ],
 
             [
+                'propietario_id' => 13,
                 'nombre_casa' => 'Piso Ruiz',
                 'tipo' => 'Mixto',
                 'precio' => 147.06,
@@ -184,6 +197,7 @@ class CasaSeeder extends Seeder
                 'valoracion' => 4.2,
             ],
             [
+                'propietario_id' => 14,
                 'nombre_casa' => 'Residencia La Italiana',
                 'tipo' => 'Femenino',
                 'precio' => 152.94,
@@ -198,6 +212,7 @@ class CasaSeeder extends Seeder
             ],
 
             [
+                'propietario_id' => 15,
                 'nombre_casa' => 'Villa Litoral Cartagena',
                 'tipo' => 'Mixto',
                 'precio' => 188.24,

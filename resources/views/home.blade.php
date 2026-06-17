@@ -53,7 +53,7 @@
 </section>
 
 <section id="testimonios" class="py-20 bg-slate-50">
-@include('partials.testimonios')
+@include('partials.testimonios', ['testimonios' => $testimonios])
 </section>
 
 @endsection
