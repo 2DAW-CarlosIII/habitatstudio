@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Testimonio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,8 +16,9 @@ class BookingController extends Controller
                     ->inRandomOrder()
                     ->take(3)
                     ->get();
+        $testimonios = Testimonio::with('usuario')->get();
 
-        return view('home', compact('casas'));
+        return view('home', compact('casas', 'testimonios'));
     }
 
     // 2. Detail Casa
