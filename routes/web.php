@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\TestimonioController;
 
 Route::get('/', [BookingController::class, 'index'])->name('home');
 
@@ -31,5 +32,5 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
+Route::resource('/testimonios',TestimonioController::class);
 require __DIR__.'/auth.php';
