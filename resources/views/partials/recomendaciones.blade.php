@@ -24,7 +24,7 @@
             </div>
             <div class="p-6 flex flex-col flex-1">
                 <div class="flex-1">
-                    <h3 class="text-lg font-bold text-slate-900 line-clamp-1 mb-2">{{ $casa->nombre_casa }}</h3>
+                    <!--<h3 class="text-lg font-bold text-slate-900 line-clamp-1 mb-2">$casa->nombre_casa</h3>-->
                     <p class="text-slate-500 text-sm mb-4 flex items-center">
                         <i class="fa-solid fa-location-dot text-red-500 mr-2"></i> {{ $casa->ubicacion }}
                     </p>
