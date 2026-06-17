@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             CasaSeeder::class,
+            TestimonioSeeder::class
         ]);
     }
 }
