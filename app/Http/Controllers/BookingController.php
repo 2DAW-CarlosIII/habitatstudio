@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Testimonio;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,9 +18,21 @@ class BookingController extends Controller
                     ->take(3)
                     ->get();
 
-        return view('home', compact('casas'));
-    }
+       /*  $testimonios = Testimonio::query()->where('fecha_aprobacion',?!==',null)->get(); */
+        $testimonios = Testimonio::query()->whereNotNull('fecha_aprobacion')->with('users')->get();
 
+
+
+        return view('home', compact('casas','testimonios'));
+    }/*
+/* Parte a) — Controlador - [ ] Modificar el método del controlador que carga  home.blade.php  para que
+recupere solo los testimonios con  fecha_aprobacion  no nula y los pase a la vista.
+Parte b) — Partial - [ ] Modificar  resources/views/partials/testimonios.blade.php  para que
+recorra la colección de testimonios y muestre para cada uno: - Avatar ( avatar_url ). Si es  null ,
+mostrar un avatar por defecto. - Nombre del usuario y  descripcion_perfil . - Contenido del
+testimonio.
+Cómo saber que está bien: la portada muestra los testimonios del seeder con  fecha_aprobacion
+rellena y no muestra los que están pendientes. */
     // 2. Detail Casa
     public function show($id)
     {
