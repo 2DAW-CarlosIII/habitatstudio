@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Casa;
+use App\Models\Testimonio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -11,11 +13,13 @@ class BookingController extends Controller
     public function index()
     {
         // Mengambil 3 kos secara ACAK untuk rekomendasi
-        $casas = DB::table('casas')
+        $Casas = DB::table('casas')
                     ->inRandomOrder()
                     ->take(3)
                     ->get();
-
+        $testimonios=Testimonio::all();
+        $testimonios->casa_id;
+        $casas=Casa::where('id',$testimonios)->get();
         return view('home', compact('casas'));
     }
 

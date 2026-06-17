@@ -29,8 +29,8 @@
 
             <div>
                 <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100 relative">
-                    <form action="" method="POST">
-
+                    <form action="{{action([App\Http\Controllers\TestimonioController::class, 'store']) }}" method="POST">
+                        @csrf @method('POST')
                         @if(isset($casa))
                             <input type="hidden" name="casa_id" value="{{ $casa->id }}">
                         @else
