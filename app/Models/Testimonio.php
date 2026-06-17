@@ -5,22 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Booking extends Model
+class Testimonio extends Model
 {
-    protected $table = "bookings";
+    protected $table = "testimonios";
 
     protected $fillable = [
+        'user_id',
         'casa_id',
-        'inquilino_id',
-        'num_movil',
-        'fecha_inicio',
-        'duracion',
-        'precio_total',
-        'estado',
-        'comprobante_pago'
+        'contenido',
+        'valoracion',
+        'fecha_aprobacion'
     ];
 
-    public function user(): BelongsTo {
+    public function usuario(): BelongsTo {
         return $this->belongsTo(User::class);
     }
 
