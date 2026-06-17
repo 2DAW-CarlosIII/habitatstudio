@@ -38,7 +38,7 @@ class TestimonioSeeder extends Seeder
             [
                 'user_id' => 4,
                 'casa_id' => 1,
-                'contenido' => 'contenido de prueba asdasdasdasdasdasd',
+                'contenido' => 'contenido de prueba asdasdasdaussdasdasd',
                 'valoracion' => 5.0,
                 'fecha_aprobacion' => '2026-06-17 12:42:26'
             ],
